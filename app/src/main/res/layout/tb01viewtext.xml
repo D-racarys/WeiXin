@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/weixin_item"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <!--头像-->
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/weixin_avatar"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/roundedCornerStyle"
+        android:layout_marginLeft="20dp" />
+    <!--名称-->
+    <TextView
+        android:id="@+id/weixin_name"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+        android:text="receiver name"
+        app:layout_constraintStart_toEndOf="@+id/weixin_avatar"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="20dp" />
+    <!--最后的聊天内容-->
+    <TextView
+        android:id="@+id/weixin_content"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="5dp"
+        android:gravity="center"
+        android:text="news content"
+        app:layout_constraintStart_toEndOf="@+id/weixin_avatar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginLeft="20dp" />
+    <!--最后的通信时间-->
+    <TextView
+        android:id="@+id/weixin_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="time"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
