@@ -44,17 +44,17 @@ public class weixinRecycleViewAdapter extends RecyclerView.Adapter<weixinRecycle
                 this.context = context;
         }
 
-        //创建新视图（由布局管理器调用）
+        //创建新视图（由布局管理器调用），创建MyViewHolder的实例
+        @NonNull
         @Override
-        public weixinRecycleViewAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent,
-                                                                        int viewType) {
+        public weixinRecycleViewAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
                 // 创建一个新view
                 View v = LayoutInflater.from(parent.getContext())
                         .inflate(R.layout.tb01viewtext, parent, false);
                 return new MyViewHolder(v);
         }
 
-        // 替换视图的内容（由布局管理器调用）
+        // 替换视图的内容（由布局管理器调用）用于绑定数据和事件
         @Override
         public void onBindViewHolder(MyViewHolder holder, int position) {
                 // 从此位置的数据集中获取元素
@@ -68,7 +68,7 @@ public class weixinRecycleViewAdapter extends RecyclerView.Adapter<weixinRecycle
                         .into(holder.weixinAvatar);//将图片放进imageText
         }
 
-        // 返回数据集的大小（由布局管理器调用）
+        // 用于确认子项的数量，直接返回数据源的长度就可以（由布局管理器调用）
         @Override
         public int getItemCount() {
                 return this.wexinList.size();

@@ -20,8 +20,8 @@ import java.util.ArrayList;
 
 public class weixinFragment extends Fragment {
     private View view;
-    private RecyclerView recyclerView;
-    private RecyclerView.Adapter weixinRCAdapter;
+    private RecyclerView recyclerView;  //声明RecycleView
+    private RecyclerView.Adapter weixinRCAdapter;  //声明适配器
     private RecyclerView.LayoutManager layoutManager;
 
     public weixinFragment() {
@@ -34,29 +34,54 @@ public class weixinFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view=inflater.inflate(R.layout.table01, container, false);
-//        initRecyclerView();
+        initRecyclerView();
         return view;
     }
+    //初始化RecycleView函数
+    private void initRecyclerView() {
+        recyclerView = (RecyclerView) view.findViewById(R.id.weixin_recycler_view);
+        recyclerView.setHasFixedSize(true);
+        layoutManager = new LinearLayoutManager(getActivity());
+        recyclerView.setLayoutManager(layoutManager);
+        ArrayList<weixin> weixinList = new ArrayList<>();
 
-//    private void initRecyclerView() {
-//        recyclerView = (RecyclerView) view.findViewById(R.id.weixin_recycler_view);
-//        recyclerView.setHasFixedSize(true);
-//        layoutManager = new LinearLayoutManager(getActivity());
-//        recyclerView.setLayoutManager(layoutManager);
-//
-//        // specify an adapter (see also next example)
-//        ArrayList<weixin> weixinList = new ArrayList<>();
-//        for (int i = 0; i < 20; i++) {
-//            weixin weixin = new weixin(
-//                    "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1604377714766&di=047992da111aa3829771424516bd6cdd&imgtype=0&src=http%3A%2F%2Fpic.51yuansu.com%2Fpic3%2Fcover%2F02%2F42%2F32%2F59ba3c2b4d7da_610.jpg",
-//                    "小明",
-//                    "8:00",
-//                    "这是一条消息"
-//            );
-//            weixinList.add(weixin);
-//        }
-//
-//        weixinRCAdapter = new weixinRecycleViewAdapter(weixinList,getActivity());
-//        recyclerView.setAdapter(weixinRCAdapter);
-//    }
+            weixin weixin1 = new weixin(
+                    "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1605366978067&di=834b7deb9a0a4d859a878bdee19d0c8b&imgtype=0&src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fblog%2F202008%2F08%2F20200808142612_nsopf.thumb.400_0.jpeg",
+                    "张三",
+                    "8:00",
+                    "hello"
+            );
+            weixinList.add(weixin1);
+            weixin weixin2 = new weixin(
+                    "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1285063713,2753463619&fm=26&gp=0.jpg",
+                    "李四",
+                    "8:20",
+                    "hello"
+            );
+            weixinList.add(weixin2);
+            weixin weixin3 = new weixin(
+                    "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2111520688,70457745&fm=26&gp=0.jpg",
+                    "王五",
+                    "8:30",
+                    "hello"
+            );
+            weixinList.add(weixin3);
+            weixin weixin4 = new weixin(
+                    "https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2345130998,305054013&fm=26&gp=0.jpg",
+                    "赵六",
+                    "9:00",
+                    "hello"
+            );
+            weixinList.add(weixin4);
+            weixin weixin5 = new weixin(
+                    "https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=233291323,4185710237&fm=26&gp=0.jpg",
+                    "大黄",
+                    "12:00",
+                    "hello"
+            );
+            weixinList.add(weixin5);
+
+        weixinRCAdapter = new weixinRecycleViewAdapter(weixinList,getActivity());
+        recyclerView.setAdapter(weixinRCAdapter);
+    }
 }
